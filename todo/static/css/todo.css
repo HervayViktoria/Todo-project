@@ -1,0 +1,164 @@
+body{
+	background: #2BC0E4;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #EAECC6, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #2BC0E4, #EAECC6 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	font-family: Roboto;
+}		
+h1{
+	background: #2980b9;
+	color: white;
+	margin: 0;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	font-size: 24px;
+	font-weight: normal;
+	outline: none;
+	
+}
+a:hover{
+	text-decoration: none;
+}
+
+.sitename:hover{
+	cursor: context-menu;
+}
+.fa-plus{
+		float: right;
+				
+}
+
+#ul{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+}
+.li{
+		background: white; 
+		height: 40px;
+		line-height: 40px; /*ez teszi középre függőlegesen*/ 
+		color: #031c44;
+}
+.li:nth-child(2n){ /*meaning: minden második legyen szürke*/
+		background: #f7f7f7;
+}
+
+.span{
+		background: #e74c3c;
+		height: 40px;
+		margin-right: 20px;
+		text-align: center;
+		color: white;
+		width: 0px;
+		display: inline-block;
+		transition: 0.2s linear; /*ne tűnjön el meg jelenjen meg rögtön hanem szépen lassabban*/
+		opacity: 0;
+}
+
+/*alapvetően a kis kukák nem látszanak, szóval ha fölé megy az egér akkor legyen szíves megjelenni*/
+.li:hover span{
+		width: 40px;
+		opacity: 1;
+		
+}
+#container{
+		
+		width: 360px;
+		margin: 100px auto;
+		background-color: #f7f7f7;
+		box-shadow: 0 0 15px rgba(0, 0, 50, 1);
+	
+	
+}
+.checkOff{
+		text-decoration: line-through;
+		color: gray;
+}
+
+input{
+		width: 100%;
+		outline: none;
+		font-size: 18px;
+		background: #f7f7f7;
+		padding: 13px 13px 13px 20px;
+		box-sizing: border-box;
+		box-shadow: none;
+		color: #2980b9; /*beírt szöveg színét adja meg*/
+		border: 3px solid rgba(0, 0, 0, 0); /* volt az inputban az az idegesítő csík beül oldalt meg felül, na ez azért volt ott, mert fenntartotta a helyet annak a bordernek ami kattintáskor megjelenik, ezzel azt csináljuk, hogy a hely fenn van tartva neki, de átlátszó!*/
+		display: none;
+		
+}
+.display-input{
+	display: block;
+}
+#input:focus{ /*ha belekattintunk akkor történik meg, ez a focus olyan mint a hover selector*/
+		background: #fff;
+		border: 3px solid #2980b9;
+		outline: none;
+		
+}
+.input{
+	background-color: transparent;
+	border: 2px solid rgba(7,98,121, 0.5);
+}
+.input:focus{
+	background-color: transparent;
+	border: 2px solid #076279;
+}
+.btn{
+	background-color: transparent;
+	color: #076279;
+	border: 1px solid #076279;
+}
+.btn:hover{
+	background-color: #076279;
+	color: white;
+	border: none;
+	transition: 0.6s linear;
+}
+.custom-link-color{
+	color: #076279;
+	font-weight: bold;
+}
+
+/* NAVBAR */
+nav button:focus{
+	outline: none;
+}
+nav a{
+	color: black;
+}
+nav li{
+	background-color: transparent;
+	
+}
+nav li a{
+	color: black;
+	
+	
+}
+nav li a:hover{
+	color: white;
+}
+
+nav .navbar-right li a:hover{
+	color: #0a99bd;
+}
+nav .nav-link{
+	padding: 0;
+}
+
+nav{
+	background: #0a99bd;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #EAECC6, #0a99bd);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #0a99bd, #EAECC6 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+@media all and (max-width: 990px) { 
+	nav li a:hover{
+		color: white;
+	}
+	nav .navbar-right li a:hover{
+		color: white;
+	}
+
+}

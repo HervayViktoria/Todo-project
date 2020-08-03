@@ -1,0 +1,57 @@
+//out: null, main: ../style.less
+nav{
+
+    background: #0a99bd;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #EAECC6, #0a99bd);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #0a99bd, #EAECC6 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    button{
+        &:focus{
+            outline: none;
+        }
+    }
+    a{
+        color: black;
+    }
+    li{
+        background-color: transparent;
+        a{
+            color: black;
+            &:hover{
+                color: white;
+            }
+        }
+    }
+    .navbar-right{
+        li{
+            a{
+                &:hover{
+                    color: @nav-blue;
+                }
+            }
+        }
+    }
+    .nav-link{
+        padding: 0;
+    }
+}
+@media  (max-width: 990px) { 
+    nav{
+        li{
+            a{
+                &:hover{
+                    color: white;
+                }
+            }
+        }
+        .navbar-right{
+            li{
+                a{
+                    &:hover{
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

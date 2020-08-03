@@ -1,0 +1,20 @@
+{% extends "layout.html"%}
+{% block content %}
+
+<div id="container">
+    <h1>To-do List<i class="fas fa-plus" title="Click here"></i> </h1>
+    <input id="input" type="text" placeholder="Add New Todo">
+    
+    <ul id="ul">
+        <li class="li" title='Click to cross out'><span class="span"><i class='fa fa-trash' title='Delete'></i></span>Have a nice day!</li>
+        {% for note in notes%}
+        {% if note.done %}
+            <li class="li checkOff" data-value="{{note.id}}" title='Click to cross out '><span class="span"><i class='fa fa-trash' title='Delete'></i></span>{{note.text}}</li>
+        {% else %}
+            <li class="li" data-value="{{note.id}}" title='Click to cross out'><span class="span"><i class='fa fa-trash' title='Delete'></i></span>{{note.text}}</li>
+        {% endif %}
+        {% endfor%}
+                        
+    </ul>
+</div>
+{% endblock content %}
