@@ -5,8 +5,11 @@ const todo = (() =>{
     const lis = document.querySelectorAll(".li");
     const spans= document.querySelectorAll(".span");
 
+    const host = location.host;
+    const local = host.includes("localhost");
     return {
         init: () =>{
+           
             todo.Load();
             todo.Create_new_input();
         },
@@ -33,7 +36,14 @@ const todo = (() =>{
                 });
 
                 input.addEventListener("keyup", e =>{
-                    if (e.keyCode === 13 &&  input.value != "") {
+                    if ((e.keyCode === 13 &&  input.value != "")  || (e.keyCode === 66 && input.value != "")) {
+                        var note = input.value;
+                        todo.Ajax_for_creating_note(note);
+                       
+                    }
+                });
+                input.addEventListener("touchend", e =>{
+                    if (input.value != "") {
                         var note = input.value;
                         todo.Ajax_for_creating_note(note);
                        
@@ -98,7 +108,12 @@ const todo = (() =>{
                               
                   }
                 };
-                xhttp.open("POST", "http://localhost:5000/create", true);
+                if(local){
+                      xhttp.open("POST", "http://localhost:5000/create", true);
+                }else{
+                    xhttp.open("POST", "https://hervay-todo.herokuapp.com/create", true);
+                }
+
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.send("note="+note_input+"&rnd_data="+"valami");
               
@@ -110,7 +125,13 @@ const todo = (() =>{
                     console.log(this.responseText);
                 }
             };
-            xhttp.open("POST","http://localhost:5000/update", true);
+
+            if (local) {
+                xhttp.open("POST", "http://localhost:5000/update", true);
+            }else{
+                xhttp.open("POST","https://hervay-todo.herokuapp.com/update", true);
+            }
+
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send("update_data="+input);
         },
@@ -121,7 +142,12 @@ const todo = (() =>{
                     console.log(this.responseText);
                 }
             };
-            xhttp.open("POST", "http://localhost:5000/delete", true);
+            if (local) {
+                xhttp.open("POST", "http://localhost:5000/delete", true);
+            }else{
+                xhttp.open("POST", "https://hervay-todo.herokuapp.com/delete", true);
+            }
+        
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send("id="+id);
         }      

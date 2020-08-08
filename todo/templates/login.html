@@ -33,9 +33,9 @@
                 {{ form.password(class="input form-control form-control-lg")}}    
             {% endif %}
         </div>
-            <small class="text-muted ml-2">
+            <!-- <small class="text-muted ml-2">
                 <a class="custom-link-color" href="#">Forgot Password?</a>
-            </small>
+            </small> -->
             <div class="form-group d-flex justify-content-center">
                 {{ form.submit(class="btn")}}
             </div>
@@ -43,7 +43,7 @@
   
     <div class="border-top pt-3">
         <small class="text-muted">
-            Do you need An Account? <a class="ml-2 custom-link-color" href="{{url_for('register')}}">Sign up</a> <!--login is not the route but the name of the function -->
+            Do you need An Account? <a class="ml-2 custom-link-color" href="{{url_for('users.register')}}">Sign up</a> <!--login is not the route but the name of the function -->
         </small>
     </div>
 </div>
